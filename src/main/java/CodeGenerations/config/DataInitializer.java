@@ -1,9 +1,8 @@
-package com.example.CodeGenerations.config;
+package CodeGenerations.config;
 
-import com.example.CodeGenerations.model.User;
-import com.example.CodeGenerations.repository.UserRepository;
+import CodeGenerations.model.User;
+import CodeGenerations.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -11,15 +10,19 @@ import java.util.List;
 import java.util.Random;
 
 @Component
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class DataInitializer {
     private final UserRepository userRepository;
+
+    public DataInitializer(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @PostConstruct
     public void insertUsers() {
         if (userRepository.findAll().size() == 0) {
             List<User> userList = new ArrayList<>();
-            for (int i = 0; i < new Random().nextInt(25); i++) {
+            for (int i = 0; i < new Random().nextInt(25) + 5; i++) {
                 userList.add(createUser());
             }
             userRepository.saveAll(userList);
@@ -28,10 +31,13 @@ public class DataInitializer {
 
     private User createUser() {
         int randomNumber = new Random().nextInt(99999);
-        return User.builder()
+        /*return User.builder()
                 .name("User " + randomNumber)
                 .surname("Surname " + randomNumber)
                 .email(randomNumber + "@gmail.com")
                 .build();
+
+         */
+        return new User(randomNumber + "@gmail.com", "UserName " + randomNumber, "Surname " + randomNumber);
     }
 }

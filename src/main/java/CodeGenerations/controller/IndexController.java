@@ -1,17 +1,20 @@
-package com.example.CodeGenerations.controller;
+package CodeGenerations.controller;
 
-import com.example.CodeGenerations.model.User;
-import com.example.CodeGenerations.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+import CodeGenerations.model.User;
+import CodeGenerations.repository.UserRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class IndexController {
     private final UserRepository userRepository;
+
+    public IndexController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @GetMapping("/")
     public String index() {
