@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CodeGenerationsApplication extends CodeGenerations.CodeGenerationsApplicationExtras {
+public class CodeGenerationsApplication extends CodeGenerationsApplicationExtras {
 
 	@Handleable
 	private String stuff;
