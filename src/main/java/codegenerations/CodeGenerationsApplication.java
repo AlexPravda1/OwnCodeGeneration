@@ -1,17 +1,12 @@
-package CodeGenerations;
+package codegenerations;
 
-import ann.Handleable;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CodeGenerationsApplication extends CodeGenerationsApplicationExtras {
-
-	@Handleable
-	private String stuff;
+public class CodeGenerationsApplication {
 
 	public static void main(String[] args) {
-		new CodeGenerationsApplication().handleStuff("hello sdsdsd");
 		SpringApplication.run(CodeGenerationsApplication.class, args);
-	}
+		}
 	}

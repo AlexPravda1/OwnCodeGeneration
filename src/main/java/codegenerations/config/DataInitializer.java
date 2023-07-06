@@ -1,7 +1,7 @@
-package CodeGenerations.config;
+package codegenerations.config;
 
-import CodeGenerations.model.User;
-import CodeGenerations.repository.UserRepository;
+import codegenerations.model.User;
+import codegenerations.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Random;
 
 @Component
-//@RequiredArgsConstructor
 public class DataInitializer {
     private final UserRepository userRepository;
 
@@ -38,6 +37,10 @@ public class DataInitializer {
                 .build();
 
          */
-        return new User(randomNumber + "@gmail.com", "UserName " + randomNumber, "Surname " + randomNumber);
+        return new User(
+                randomNumber + "@gmail.com",
+                "UserName " + randomNumber,
+                "Surname " + randomNumber
+        );
     }
 }
